@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UP GK Wallah के साथ इतिहास और सामान्य ज्ञान पढ़ें, नोट्स देखें और मिक्स क्विज़ से अभ्यास करें।">
+    <meta name="theme-color" content="#111111">
+    <title>UP GK Wallah | Study Portal</title>
+    <link rel="icon" type="image/png" href="assets/up-gkwallah-logo.png">
+    <link rel="stylesheet" href="style.css?v=20261019-mobile-otp-captcha">
+</head>
+<body>
+
+    <header class="navbar mock-navbar">
+        <a class="brand" href="#home" onclick="renderHome(); return false;" aria-label="UP GK Wallah होम">
+            <span class="brand-logo-wrap">
+                <img class="brand-logo" src="assets/up-gkwallah-logo.png" alt="UP GK Wallah logo">
+            </span>
+            <span class="brand-copy">
+                <span class="brand-name"><span class="brand-up">UP</span> <span class="brand-gk">GK</span> <span class="brand-wallah">Wallah</span></span>
+            </span>
+        </a>
+
+        <form class="site-search" role="search" onsubmit="searchExams(this.elements.query.value); return false;">
+            <label class="visually-hidden" for="site-exam-search">पूरी साइट खोजें</label>
+            <input id="site-exam-search" name="query" type="search" placeholder="पूरी साइट खोजें..." autocomplete="off">
+            <button type="submit" aria-label="पूरी साइट खोजें">खोजें</button>
+        </form>
+
+        <nav class="nav-links mock-nav" aria-label="मुख्य नेविगेशन">
+            <a href="#home" class="nav-tab active" onclick="renderHome(); return false;">Home</a>
+            <a href="#exams" class="nav-tab nav-tab--ghost" onclick="showExamCatalog(); return false;">Exams <span class="nav-caret">▾</span></a>
+            <a href="#mock-tests" class="nav-tab" onclick="openMockTests(); return false;">Mock Tests</a>
+            <a href="#live-tests" class="nav-tab" onclick="openLiveTests(); return false;">Live Tests</a>
+            <a href="#mock-tests" class="nav-tab" onclick="openMockTests(); return false;">Quizzes</a>
+            <a href="#current-affairs" class="nav-tab" onclick="openCurrentAffairs(); return false;">Current Affairs</a>
+            <a href="#previous-papers" class="nav-tab" onclick="openPreviousPapers(); return false;">Prev. Papers</a>
+        </nav>
+
+        <div class="header-actions" id="header-auth-actions"></div>
+    </header>
+
+    <div class="main-container">
+        
+        <aside class="sidebar" id="syllabus">
+            <h3 class="sidebar-heading">विषय सूची (Syllabus)</h3>
+            <ul class="main-menu">
+      
+                <!-- प्राचीन भारत -->
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="toggleDropdown('ancient-dropdown'); return false;">प्राचीन भारत का इतिहास</a>
+                    <ul id="ancient-dropdown" class="submenu" style="display: none;">
+                        <li><a href="#" onclick="loadChapterData('anc_ch1'); return false;">अध्याय 1: प्रागैतिहासिक काल</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch2'); return false;">अध्याय 2: सिंधु घाटी सभ्यता</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch3'); return false;">अध्याय 3: वैदिक काल</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch4'); return false;">अध्याय 4: महाजनपद काल</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch5'); return false;">अध्याय 5: धार्मिक आंदोलन</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch6'); return false;">अध्याय 6: मौर्य साम्राज्य</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch7'); return false;">अध्याय 7: मौर्योत्तर काल</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch8'); return false;">अध्याय 8: गुप्त साम्राज्य</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch9'); return false;">अध्याय 9: गुप्तोत्तर काल</a></li>
+                        <li><a href="#" onclick="loadChapterData('anc_ch10'); return false;">अध्याय 10: दक्षिण भारत के राजवंश</a></li>
+                    </ul>
+                </li>
+
+                <!-- मध्यकालीन भारत -->
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="toggleDropdown('medieval-dropdown'); return false;"> मध्यकालीन भारत का इतिहास</a>
+                    <ul id="medieval-dropdown" class="submenu" style="display: none;">
+                        <li><a href="#" onclick="loadChapterData('med_ch11'); return false;">अध्याय 11: भारत पर मुस्लिम आक्रमण</a></li>
+                        <li><a href="#" onclick="loadChapterData('med_ch12'); return false;">अध्याय 12: दिल्ली सल्तनत भाग-1</a></li>
+                        <li><a href="#" onclick="loadChapterData('med_ch13'); return false;">अध्याय 13: दिल्ली सल्तनत भाग-2</a></li>
+                        <li><a href="#" onclick="loadChapterData('med_ch14'); return false;">अध्याय 14: विजयनगर और बहमनी साम्राज्य</a></li>
+                        <li><a href="#" onclick="loadChapterData('med_ch15'); return false;">अध्याय 15: धार्मिक आंदोलन</a></li>
+                        <li><a href="#" onclick="loadChapterData('med_ch16'); return false;">अध्याय 16: मुगल साम्राज्य भाग-1</a></li>
+                        <li><a href="#" onclick="loadChapterData('med_ch17'); return false;">अध्याय 17: मुगल साम्राज्य भाग-2 </a></li>
+                        <li><a href="#" onclick="loadChapterData('med_ch18'); return false;">अध्याय 18: मराठा साम्राज्य का उदय</a></li>   
+                    </ul>
+                </li>
+
+                <!-- आधुनिक भारत का इतिहास -->
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="toggleDropdown('modern-dropdown'); return false;">आधुनिक भारत का इतिहास</a>
+                    <ul id="modern-dropdown" class="submenu" style="display: none;">
+                   <li><a href="#" onclick="loadChapterData('mor_ch19'); return false;">अध्याय 19: यूरोपीय कंपनियों का आगमन</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch20'); return false;">अध्याय 20: ब्रिटिश सत्ता का विस्तार</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch21'); return false;">अध्याय 21: 1857 का महान विद्रोह</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch22'); return false;">अध्याय 22: सामाजिक-धार्मिक सुधार</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch23'); return false;">अध्याय 23: राष्ट्रीय कांग्रेस स्थापना</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch24'); return false;">अध्याय 24: क्रांतिकारी आंदोलन भाग-1</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch25'); return false;">अध्याय 25: गांधी युग की शुरुआत</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch26'); return false;">अध्याय 26: सविनय अवज्ञा आंदोलन</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch27'); return false;">अध्याय 27: स्वतंत्रता की ओर कदम</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch28'); return false;">अध्याय 28: भारत का विभाजन</a></li>
+                   <li><a href="#" onclick="loadChapterData('mor_ch29'); return false;">अध्याय 29: स्वतंत्र भारत (1947 बाद)</a></li>
+              </ul>
+          </li>
+
+
+                <!-- भूगोल -->
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="toggleDropdown('geo-dropdown'); return false;">🌍 भारत और विश्व का भूगोल</a>
+                    <ul id="geo-dropdown" class="submenu" style="display: none;">
+                        <li><a href="#" onclick="loadChapterData('geo_ch1'); return false;">अध्याय 1: ब्रह्मांड और सौरमंडल</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch2'); return false;">अध्याय 2: पृथ्वी की गतियां, अक्षांश (Latitude) और देशांतर (Longitude) रेखाएं</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch3'); return false;">अध्याय 3: पृथ्वी की आंतरिक संरचना, चट्टानें और ज्वालामुखी/भूकंप</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch4'); return false;">अध्याय 4: विश्व के 7 महाद्वीप (Continents) और महासागर (Oceans)</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch5'); return false;">अध्याय 5: विश्व के प्रमुख पर्वत, मरुस्थल (Deserts) और नदियां</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch6'); return false;">अध्याय 6: भारत की भौगोलिक स्थिति, आकार और पड़ोसी देश</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch7'); return false;">अध्याय 7: भारत के भौतिक प्रदेश – हिमालय पर्वत, विशाल मैदान और प्रायद्वीपीय पठार</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch8'); return false;">अध्याय 8: भारत का अपवाह तंत्र – गंगा, सिंधु, ब्रह्मपुत्र और दक्षिण की नदियां</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch9'); return false;">अध्याय 9: भारत की जलवायु (Monsoon), मिट्टी के प्रकार और प्राकृतिक वनस्पति</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch10'); return false;">अध्याय 10: भारत के राष्ट्रीय उद्यान (National Parks) और वन्यजीव अभ्यारण्य</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch11'); return false;">अध्याय 11: भारत में कृषि, प्रमुख फसलें और बहुउद्देशीय नदी घाटी परियोजनाएं (Dams)</a></li>
+                        <li><a href="#" onclick="loadChapterData('geo_ch12'); return false;">अध्याय 12: भारत के खनिज संसाधन, प्रमुख उद्योग और परिवहन (National Highways & Railways)</a></li>
+
+
+                    </ul>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('environment_biodiversity'); return false;">🐾 पर्यावरण एवं जैव विविधता</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('indian_art_culture'); return false;">🕉️ भारतीय कला एवं संस्कृति</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('sports_gk'); return false;">🏆 खेल सामान्य ज्ञान</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('indian_economy'); return false;">💰 भारतीय अर्थव्यवस्था</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('general_science'); return false;">🔬 सामान्य विज्ञान</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('science_biology'); return false;">🧬 जीव विज्ञान</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('science_physics'); return false;">💡 भौतिक विज्ञान</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('science_chemistry'); return false;">🧪 रसायन विज्ञान</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('world_history'); return false;">🗿 विश्व इतिहास</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-title" onclick="loadChapterData('books_authors'); return false;">✍️ पुस्तकें एवं लेखक</a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <div id="dynamic-content"></div>
+        </main>
+
+    </div>
+
+    <footer class="site-footer" id="contact">
+        <span>© UP GK Wallah</span>
+        <span>सीखते रहो, बढ़ते रहो!</span>
+    </footer>
+
+    <script src="exam-data.js"></script>
+    <script src="exam-syllabus-data.js"></script>
+    <script src="subject-data.js"></script>
+    <script src="mock-tests-data.js"></script>
+    <script src="live-tests-data.js"></script>
+    <script src="script.js?v=20261021-session-checks"></script>
+    <script src="ancient-extra-data.js"></script>
+    <script src="medieval-data.js"></script>
+    <script src="modern-data.js"></script>
+    <script src="geography-data.js"></script>
+    <script src="environment-economy-data.js"></script>
+    <script src="culture-sports-books-data.js"></script>
+    <script src="science-gk-data.js"></script>
+    <script src="world-history-data.js"></script>
+</body>
+</html>
